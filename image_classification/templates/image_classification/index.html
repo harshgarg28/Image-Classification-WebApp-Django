@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Classification App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Image Classification App</h1>
+        <p class="lead">A simple Django web app with a pretrained PyTorch DenseNet model will try to classify the selected image according to ImageNet labels.</p>
+
+        <!-- Image Upload Form -->
+        <form method="post" enctype="multipart/form-data" class="my-5">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" id="btnUpload" class="btn btn-primary">Predict</button>
+        </form>
+
+        <!-- Display Prediction Result and Image -->
+        {% if image_uri is not None %}
+            {% if predicted_label is not None %}
+                <div class="alert alert-primary" role="alert">
+                    Predicted label: <b>{{ predicted_label }}</b>
+                </div>
+            {% else %}
+                <div class="alert alert-danger" role="alert">
+                    Prediction error. No label predicted.
+                </div>
+            {% endif %}
+
+            <img src="{{ image_uri }}" class="img-fluid rounded mx-auto d-block" alt="Uploaded image"
+                 style="max-width: min(500px, 100%); height: auto; margin-top: 30px;">
+        {% endif %}
+    </div>
+</body>
+</html>
