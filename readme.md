@@ -36,4 +36,4 @@ Welcome! This README file will guide you through steps to run this webapp in loc
 This Image Classification Webapp uses a DenseNet neural network pretrained on the ImageNet dataset to classify uploaded images. This functionality is contained within the image_classification/views.py module. When running the app first time it will download the pretrained model.
 
 ### classify--image.ipynb
-this file contains a Resnet model trained using SAM optimizer, that I trained at first but later when its performance was bad, I used a pretrained DenseNet model because of lack of time and computational resources(because Google Colab credits were exhauseted). The performance of final model is satidfactory compared to the model I trained.
+this file contains a Resnet model trained (ckpt.pth) using SAM optimizer, that I trained at first but later when its performance was bad, I used a pretrained DenseNet model because of lack of time and computational resources(because Google Colab credits were exhauseted). The performance of final model is satidfactory compared to the model I trained.
